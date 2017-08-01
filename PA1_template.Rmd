@@ -4,11 +4,18 @@ output:
   html_document:
     keep_md: true
 ---
+### Reproducable Research Assignment1
+
+### the document builds up the answers to Questions in Assignment1 step by step
 
 
 ## Loading and preprocessing the data
-
-
+```{r }
+##Read the data
+StepsData<-read.table("activity.csv",header=TRUE,sep=",")
+##check the data
+head(StepsData)
+```
 
 ## What is mean total number of steps taken per day?
 
