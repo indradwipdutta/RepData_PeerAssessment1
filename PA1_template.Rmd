@@ -18,7 +18,37 @@ head(StepsData)
 ```
 
 ## What is mean total number of steps taken per day?
+#####      1.Calculate the total number of steps taken per day
+ 
+```{r echo=TRUE,warning=FALSE}
+library(dplyr)
+##consider the cases without NA
+StepsData_noNA<-StepsData[complete.cases(StepsData),]
+head(StepsData_noNA)
 
+##Table the sum total steps taken per day
+StepsDay_Sum<-aggregate(steps~date,StepsData_noNA,sum)
+head(StepsDay_Sum)
+```
+ 
+   
+      
+#####      2.If you do not understand the difference between a histogram and a barplot, research the difference  between them. Make a histogram of the total number of steps taken each day
+      
+```{r echo=TRUE,warning=FALSE}
+##Make a histogram of the total number of steps taken each day
+hist(StepsDay_Sum$steps,xlab="No. of Steps /Date(Day)",ylab="count",col="light green",border="red",main="Histogram for Total Steps/day")
+``` 
+  
+ #####      3.Calculate and report the mean and median of the total number of steps taken per day
+      
+
+```{r echo=TRUE,warning=FALSE}
+##Report the mean and median of the Data
+mean(StepsDay_Sum$steps)
+median(StepsDay_Sum$steps)
+```
+##__________________________________________________________________________________
 
 
 ## What is the average daily activity pattern?
